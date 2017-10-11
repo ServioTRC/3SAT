@@ -34,11 +34,23 @@ dummy_number = 0
 def main():
     global dummy_number
     try:
+        #file read
+        file = open("simple_v3_c2.cnf")
+        content = file.read()
+        file.close()
+        lines = content.split("\n")
+
         header = True
         counter = 1
-        while True:
-            line = input()
+        num_line = 0
+        total_lines = len(lines)
+        #while True:
+        while num_line<total_lines:
+            #line = input()
+            line = lines[num_line]
+            #print("line", num_line, line)
             if line[0] == "c":
+                num_line += 1
                 continue
             else:
                 values = line.split(" ")
@@ -64,6 +76,7 @@ def main():
                     sat_creator(values, clause_type)
 
                     counter += 1
+            num_line += 1
     except EOFError:
         pass
 
