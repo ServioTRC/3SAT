@@ -21,7 +21,12 @@ def sat_creator(variables, clause_type):
 
     elif clause_type == 3:
         #Final clause
-
+        for i in range(len(variables)-2):
+            print(dummy_number, variables[i], end=' ')
+            dummy_number *= -1
+            dummy_number += 1
+            print(dummy_number)
+            dummy_number *= -1
         print(dummy_number, variables[-2], variables[-1])      
 
 dummy_number = 0
