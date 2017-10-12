@@ -1,35 +1,53 @@
 def sat_creator(variables, clause_type):
-    global dummy_number 
+    global dummy_number, results
     if clause_type == 1:
         #Beginning clause
-        print(variables[0], variables[1], dummy_number)
+        #print(variables[0], variables[1], dummy_number)
+        results.append([variables[0], variables[1], dummy_number])
         dummy_number *= -1
         for i in range(2, len(variables)):
-            print(dummy_number, variables[i], end=' ')
+            temp = dummy_number
+            #print(dummy_number, variables[i], end=' ')
             dummy_number *= -1
             dummy_number += 1
-            print(dummy_number) 
+            #print(temp, variables[i], dummy_number)
+            results.append([temp, variables[i], dummy_number])                        
             dummy_number *= -1           
 
     elif clause_type == 2:
         for i in range(len(variables)):
-            print(dummy_number, variables[i], end=' ')
+            temp = dummy_number
+            #print(dummy_number, variables[i], end=' ')
             dummy_number *= -1
             dummy_number += 1
-            print(dummy_number)
+            #print(dummy_number)
+            results.append([temp, variables[i], dummy_number])    
             dummy_number *= -1
 
     elif clause_type == 3:
         #Final clause
         for i in range(len(variables)-2):
-            print(dummy_number, variables[i], end=' ')
+            temp = dummy_number
+            #print(dummy_number, variables[i], end=' ')
             dummy_number *= -1
             dummy_number += 1
-            print(dummy_number)
+            #print(dummy_number)
+            results.append([temp, variables[i], dummy_number])
             dummy_number *= -1
-        print(dummy_number, variables[-2], variables[-1])      
+        #print(dummy_number, variables[-2], variables[-1])      
+        results.append([dummy_number, variables[-2], variables[-1]])
+
+def save_results():
+    global results, file2
+    file2 = open("instance_3SAT_result.txt", "w")
+    file2.write("c A 3-SAT instance for the given clauses\n")
+    file2.write("p cnf "+str(-results[-1][0])+" "+str(len(results))+"\n")
+    for clause in results:
+        file2.write(str(clause[0])+" "+str(clause[1]) +" "+str(clause[2])+"\n")
+    file2.close()
 
 dummy_number = 0
+results = []
 
 def main():
     global dummy_number
@@ -85,6 +103,7 @@ def main():
 
                     counter += 1
             num_line += 1
+        save_results()
     except EOFError:
         pass
 
