@@ -35,7 +35,7 @@ def main():
     global dummy_number
     try:
         #file read
-        file = open("simple_v3_c2.cnf")
+        file = open("instance_3SAT_example.txt")
         content = file.read()
         file.close()
         lines = content.split("\n")
@@ -44,12 +44,20 @@ def main():
         counter = 1
         num_line = 0
         total_lines = len(lines)
+        #Reviews enters at end of file
+        limit = total_lines -1 
+        for _ in range(limit, 0, -1):
+            if lines[num_line] == "":
+                total_lines -= 1
+            else:
+                break
+
         #while True:
         while num_line<total_lines:
             #line = input()
             line = lines[num_line]
             #print("line", num_line, line)
-            if line[0] == "c":
+            if line != "" and line[0] == "c":
                 num_line += 1
                 continue
             else:
