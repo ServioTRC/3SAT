@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7b775cad-02a4-42ad-b748-99cfa68e6e98" name="Default" comment="Corrección de clausulas">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instance_3SAT_example.txt" afterPath="$PROJECT_DIR$/instance_3SAT_example.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instance_3SAT_result.txt" afterPath="$PROJECT_DIR$/instance_3SAT_result.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ksat.py" afterPath="$PROJECT_DIR$/ksat.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple_v3_c2.cnf" afterPath="$PROJECT_DIR$/simple_v3_c2.cnf" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -367,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507697565579</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Corrección de clausulas">
+      <created>1507864313501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1507864313501</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -425,7 +428,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Lectura de CNF" />
     <MESSAGE value="Implementación de lectura de archivo CNF" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementación de lectura de archivo CNF" />
+    <MESSAGE value="Corrección de clausulas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de clausulas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
