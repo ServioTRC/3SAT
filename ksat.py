@@ -34,9 +34,9 @@ def sat_creator(variables, clause_type):
         dummy_number *= -1
         dummy_number += 1
 
-def save_results():
+def save_results(file_name):
     global results_clauses
-    file2 = open("instance_3SAT_result.txt", "w")
+    file2 = open(file_name, "w")
     file2.write("c A 3-SAT instance for the given clauses\n")
     file2.write("p cnf " + str(dummy_number-1) + " " + str(len(results_clauses)) + "\n")
     for clause in results_clauses:
@@ -49,7 +49,9 @@ results_clauses = []
 def main():
     global dummy_number, results_clause
     try:
-        file = open("instance_3SAT_example.txt")
+        input_file_name = input("Enter the file name to use as CNF input: ")
+        output_file_name = input("Enter the file name to save the CNF output: ")
+        file = open(input_file_name)
         content = file.read()
         file.close()
         lines = content.split("\n")
@@ -85,11 +87,11 @@ def main():
                     else:
                         #Case 1 variable
                         if total_variables == 1:
-                            results_clauses.append([values[0], dummy_number, dummy_number+1])
-                            dummy_number += 2
+                            results_clauses.append([values[0], values[0], values[0]])
                         #Case 2 variables
                         elif total_variables == 2:
                             results_clauses.append([values[0], values[1], dummy_number])
+                            results_clauses.append([-dummy_number,values[0], values[1]])
                             dummy_number += 1
                         #Case more than 3 variable
                         else:
@@ -103,8 +105,10 @@ def main():
                             sat_creator(last_clause, 3)
 
             num_line += 1
-        save_results()
-    except EOFError:
-        pass
+        save_results(output_file_name)
+        exit(0)
+    except Exception:
+        print("Error opening the file")
+        exit(-1)
 
 main()
